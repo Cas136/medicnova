@@ -17,7 +17,19 @@ SET time_zone = "+00:00";
 
 CREATE DATABASE IF NOT EXISTS `medic` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 USE `medic`;
-
+-- --------------------------------------------------------
+-- Tabla para facturas
+-- --------------------------------------------------------
+CREATE TABLE `factura` (
+  `factura_id` int(11) NOT NULL AUTO_INCREMENT,
+  `paciente_id` int(11) NOT NULL,
+  `descripcion` varchar(255) NOT NULL,
+  `monto` decimal(10,2) NOT NULL,
+  `leida` tinyint(1) NOT NULL DEFAULT 0,
+  `fecha_creacion` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`factura_id`),
+  FOREIGN KEY (`paciente_id`) REFERENCES `users`(`user_id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 -- --------------------------------------------------------
 -- Estructura de tabla para la tabla `users`
 -- --------------------------------------------------------
