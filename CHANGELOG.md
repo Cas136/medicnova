@@ -4,6 +4,27 @@ Este documento registra de manera estructurada el historial de cambios del proye
 
 ---
 
+## [1.2.0] - 2025-09-29
+### Versión
+1.2.0  
+
+### Fecha y hora
+2025-09-29  
+
+### Descripción del cambio
+- Se agregó la **campana de notificaciones** en la interfaz.  
+- Se implementó la **funcionalidad de facturación**.  
+- Nuevos archivos:  
+  - `PhP/marcar_leidas.php`  
+  - `PhP/notificaciones.php`  
+
+### Impacto en el proyecto
+- **Nuevas funcionalidades**: permite notificar a los usuarios de eventos importantes.  
+- **Mejora en la gestión administrativa**: el sistema ahora cuenta con facturación básica.  
+- Mejora la experiencia del usuario al poder marcar notificaciones como leídas.  
+
+---
+
 ## [1.1.0] - 2025-09-29
 ### Versión
 1.1.0  
