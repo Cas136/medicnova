@@ -1,0 +1,62 @@
+-- phpMyAdmin SQL Dump
+-- versión 5.1.1
+-- https://www.phpmyadmin.net/
+--
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 2025-09-14
+-- Versión del servidor: 10.4.21-MariaDB
+-- Versión de PHP: 8.0.11
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+-- --------------------------------------------------------
+-- Base de datos: `medic`
+-- --------------------------------------------------------
+
+CREATE DATABASE IF NOT EXISTS `medic` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `medic`;
+
+-- --------------------------------------------------------
+-- Estructura de tabla para la tabla `users`
+-- --------------------------------------------------------
+
+CREATE TABLE `users` (
+  `user_id` int(11) NOT NULL AUTO_INCREMENT,
+  `unique_id` int(255) NOT NULL,
+  `fname` varchar(255) NOT NULL,
+  `lname` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `img` varchar(255) NOT NULL,
+  `status` varchar(255) NOT NULL,
+  `role` ENUM('paciente','doctor') NOT NULL DEFAULT 'paciente',
+  PRIMARY KEY (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+-- Estructura de tabla para la tabla `messages`
+-- --------------------------------------------------------
+
+CREATE TABLE `messages` (
+  `msg_id` int(11) NOT NULL AUTO_INCREMENT,
+  `incoming_msg_id` int(255) NOT NULL,
+  `outgoing_msg_id` int(255) NOT NULL,
+  `msg` varchar(1000) NOT NULL,
+  PRIMARY KEY (`msg_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+-- Ejemplo de datos iniciales
+-- --------------------------------------------------------
+
+INSERT INTO `users` (`unique_id`, `fname`, `lname`, `email`, `password`, `img`, `status`, `role`) VALUES
+(1001, 'Juan', 'Pérez', 'juan@example.com', '123456', 'juan.png', 'Activo', 'paciente'),
+(2001, 'María', 'López', 'maria@example.com', '123456', 'maria.png', 'Activo', 'doctor');
+
+INSERT INTO `messages` (`incoming_msg_id`, `outgoing_msg_id`, `msg`) VALUES
+(2001, 1001, 'Buenos días doctora, me duele la cabeza'),
+(1001, 2001, 'Buenos días Juan, ¿desde cuándo tienes el dolor?');
+
+COMMIT;

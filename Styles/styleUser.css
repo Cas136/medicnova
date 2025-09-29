@@ -1,0 +1,137 @@
+:root {
+    --primary-color: #0d6efd; /* Color principal del sistema */
+    --bg-page: #f5f7fa;
+    --card-radius: 1rem;
+    --shadow-lg: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+/* ==== Body y fondo ==== */
+body {
+    background: var(--bg-page);
+    font-family: Inter, system-ui, sans-serif;
+    color: #39424a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* ==== Card de login/registro ==== */
+.card {
+    background: #fff;
+    border-radius: var(--card-radius);
+    box-shadow: var(--shadow-lg);
+    padding: 40px;
+    max-width: 450px;
+    width: 100%;
+    animation: slideInUp 0.8s ease-out forwards;
+}
+
+@keyframes slideInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ==== Títulos ==== */
+h3 {
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+/* ==== Inputs ==== */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    border-radius: 0.75rem;
+    border: 1px solid #ccc;
+    padding: 12px 15px;
+    width: 100%;
+    margin-bottom: 15px;
+    transition: 0.3s;
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 8px rgba(13,110,253,0.3);
+}
+
+/* ==== Botones ==== */
+button.btn-primary {
+    background: linear-gradient(180deg, var(--primary-color), color-mix(in srgb, var(--primary-color) 80%, black 10%));
+    border: none;
+    border-radius: 0.75rem;
+    font-weight: 600;
+    padding: 12px 0;
+}
+
+button.btn-primary:hover { filter: brightness(0.97); }
+
+button.btn-success {
+    background-color: #28a745;
+    border: none;
+    border-radius: 0.75rem;
+}
+
+button.btn-success:hover {
+    background-color: #218838;
+}
+
+button.btn-outline-primary {
+    color: var(--primary-color);
+    border: 2px solid rgba(13,110,253,0.14);
+    border-radius: 0.75rem;
+    background: transparent;
+}
+
+button.btn-outline-primary:hover {
+    background: color-mix(in srgb, var(--primary-color) 6%, transparent);
+}
+
+/* ==== Botón de regresar ==== */
+a.btn-outline-secondary {
+    margin-top: 10px;
+    border-radius: 0.75rem;
+    border: 2px solid rgba(0,0,0,0.1);
+    color: #39424a;
+    transition: 0.3s;
+}
+
+a.btn-outline-secondary:hover {
+    background-color: var(--primary-color);
+    color: #fff;
+    border-color: var(--primary-color);
+}
+
+/* ==== Mensajes de error ==== */
+.alert {
+    border-radius: 0.75rem;
+}
+
+/* ==== Links ==== */
+p a {
+    color: var(--primary-color);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+p a:hover {
+    text-decoration: underline;
+}
+
+/* ==== Imagen del logo ==== */
+.logo-small {
+    width: 160px;
+    height: auto;
+    display: block;
+    margin: 0 auto 20px auto;
+    border-radius: 50%;
+    border: 2px solid var(--primary-color);
+}
+
+/* ==== Form label ==== */
+label {
+    font-weight: 500;
+    margin-bottom: 5px;
+    display: block;
+}
